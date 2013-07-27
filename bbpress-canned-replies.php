@@ -128,6 +128,10 @@ class BBP_Canned_Replies {
 	 * @return void
 	 */
 	public function reply_form() {
+
+		if( ! current_user_can( 'moderate' ) )
+			return;
+
 		echo '<div class="bbp-canned-replies-wrapper">';
 			if( $this->have_canned_replies() ) {
 				echo '<a href="#" class="bbp-toggle-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
