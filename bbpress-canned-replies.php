@@ -9,14 +9,11 @@
  */
 
 class BBP_Canned_Replies {
-	/*--------------------------------------------*
-	 * Constructor
-	 *--------------------------------------------*/
 
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
-	function __construct() {
+	public function __construct() {
 
 		// load the plugin translation files
 		add_action( 'init', array( $this, 'textdomain' ) );
