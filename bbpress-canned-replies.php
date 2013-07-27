@@ -8,6 +8,9 @@
  * Version: 0.1
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class BBP_Canned_Replies {
 
 	/**
