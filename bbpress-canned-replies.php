@@ -133,8 +133,11 @@ class BBP_Canned_Replies {
 				echo '<a href="#" class="bbp-show-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
 				echo '<ul class="bbp-canned-replies-list">';
 					foreach( $this->have_canned_replies() as $reply ) {
-						echo '<li class="canned-reply">';
+						echo '<li class="bpp-canned-reply">';
 							echo get_the_title( $reply->ID );
+							echo '<span class="bbp-caned-reply-sep">&nbsp;&ndash;&nbsp;</span>';
+							echo '<a href="#" class="bbp-canned-reply-insert" data-id="' . esc_attr( $reply->ID ) . '">' . __( 'Insert', 'bbp-canned-replies' ) . '</a>';
+							echo '<div class="bbp-canned-reply-content" id="bbp-canned-reply-' . $reply->ID . '" style="display:none;">' . get_post_field( 'post_content', $reply->ID ) . '</div>';
 						echo '</li>';
 					}
 				echo '</ul>';
