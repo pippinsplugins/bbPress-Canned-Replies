@@ -129,8 +129,35 @@ class BBP_Canned_Replies {
 	 */
 	public function reply_form() {
 		echo '<div class="bbp-canned-replies-wrapper">';
-
+			if( $this->have_canned_replies() ) {
+				echo '<a href="#" class="bbp-show-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
+				echo '<ul class="bbp-canned-replies-list">';
+					foreach( $this->have_canned_replies() as $reply ) {
+						echo '<li class="canned-reply">';
+							echo get_the_title( $reply->ID );
+						echo '</li>';
+					}
+				echo '</ul>';
+			}
 		echo '</div>';
+	}
+
+
+	/**
+	 * Get canned replies
+	 *
+	 * @since 1.0
+	 *
+	 * @return void
+	 */
+	private function have_canned_replies() {
+		$args = apply_filters( 'bbp_canned_replies_query_args', array(
+			'post_type'   => 'bbp_canned_reply',
+			'nopaging'    => true,
+			'post_status' => 'publish'
+		) );
+
+		return get_posts( $args );
 	}
 
 } // end class
