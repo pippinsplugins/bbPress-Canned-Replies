@@ -22,7 +22,13 @@ class BBP_Canned_Replies {
 		add_action( 'init', array( $this, 'textdomain' ) );
 
 		// register css files
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
+
+		// register js files
+		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
+
+		// Add our front end markup
+		add_action( 'bbp_theme_before_reply_form_content', array( $this, 'reply_form' ) );
 
 	} // end constructor
 
@@ -45,9 +51,28 @@ class BBP_Canned_Replies {
 	 *
 	 * @return void
 	 */
-	public function register_plugin_styles() {
-		$css_path = plugin_dir_path( __FILE__ ) . 'css/frond-end.css';
-	    wp_enqueue_style( 'bbp_canned_replies_style', plugin_dir_url( __FILE__ ) . 'css/frond-end.css', filemtime( $css_path ) );
+	public function styles() {
+		$css_path = plugin_dir_path( __FILE__ ) . 'css/front-end.css';
+	    wp_enqueue_style( 'bbp_canned_replies_style', plugin_dir_url( __FILE__ ) . 'css/front-end.css', filemtime( $css_path ) );
+	}
+
+
+	/**
+	 * Load the plugin's js files
+	 *
+	 * @since 1.0
+	 *
+	 * @return void
+	 */
+	public function scripts() {
+		$script_path = plugin_dir_path( __FILE__ ) . 'js/canned-replies.js';
+	    wp_enqueue_script( 'bbp_canned_replies_script', plugin_dir_url( __FILE__ ) . 'js/canned-replies.js', filemtime( $script_path ) );
+	}
+
+	public function reply_form() {
+		echo '<div class="bbp-canned-replies-wrapper">';
+
+		echo '</div>';
 	}
 
 } // end class
