@@ -130,7 +130,8 @@ class BBP_Canned_Replies {
 	public function reply_form() {
 		echo '<div class="bbp-canned-replies-wrapper">';
 			if( $this->have_canned_replies() ) {
-				echo '<a href="#" class="bbp-show-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
+				echo '<a href="#" class="bbp-toggle-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
+				echo '<a href="#" class="bbp-toggle-replies" style="display:none">' . __( 'Hide Canned Replies', 'bbp-canned-replies' ) . '</a>';
 				echo '<ul class="bbp-canned-replies-list">';
 					foreach( $this->have_canned_replies() as $reply ) {
 						echo '<li class="bpp-canned-reply">';
