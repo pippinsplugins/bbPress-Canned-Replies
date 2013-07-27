@@ -116,7 +116,7 @@ class BBP_Canned_Replies {
 	 */
 	public function scripts() {
 		$script_path = plugin_dir_path( __FILE__ ) . 'js/canned-replies.js';
-	    wp_enqueue_script( 'bbp_canned_replies_script', plugin_dir_url( __FILE__ ) . 'js/canned-replies.js', filemtime( $script_path ) );
+	    wp_enqueue_script( 'bbp_canned_replies_script', plugin_dir_url( __FILE__ ) . 'js/canned-replies.js', array( 'jquery' ), filemtime( $script_path ) );
 	}
 
 
