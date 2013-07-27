@@ -21,6 +21,9 @@ class BBP_Canned_Replies {
 		// load the plugin translation files
 		add_action( 'init', array( $this, 'textdomain' ) );
 
+		// register the post type
+		add_action( 'init', array( $this, 'post_type' ) );
+
 		// register css files
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
 
@@ -43,6 +46,53 @@ class BBP_Canned_Replies {
 	public function textdomain() {
 		load_plugin_textdomain( 'bbp-canned-replies', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
+
+
+	/**
+	 * Register the post type
+	 *
+	 * @since 1.0
+	 *
+	 * @return void
+	 */
+	public function post_type() {
+
+		if( ! class_exists( 'bbPress' ) )
+			return;
+
+		$labels = array(
+			'name'              => _x( 'Canned Replies',                   'post type general name',  'bbp-canned-replies' ),
+			'singular_name'     => _x( 'Canned Reply',                     'post type singular name', 'bbp-canned-replies' ),
+			'add_new'           => __( 'Add New',                          'bbp-canned-replies' ),
+			'add_new_item'      => __( 'Add New Canned Reply',             'bbp-canned-replies' ),
+			'edit_item'         => __( 'Edit Canned Reply',                'bbp-canned-replies' ),
+			'new_item'          => __( 'New Canned Reply',                 'bbp-canned-replies' ),
+			'all_items'         => __( 'Canned Replies',                   'bbp-canned-replies' ),
+			'view_item'         => __( 'View Canned Reply',                'bbp-canned-replies' ),
+			'search_items'      => __( 'Search Canned Replies',            'bbp-canned-replies' ),
+			'not_found'         => __( 'No Canned Replies found',          'bbp-canned-replies' ),
+			'not_found_in_trash'=> __( 'No Canned Replies found in Trash', 'bbp-canned-replies' ),
+			'parent_item_colon' => '',
+			'menu_name'         => __( 'Canned Replies',                   'bbp-canned-replies' )
+		);
+
+		$args = array(
+			'labels'            => $labels,
+			'public'            => false,
+			'show_ui'           => true,
+			'show_in_menu'      => 'edit.php?post_type=' . bbp_get_forum_post_type(),
+			'query_var'         => false,
+			'rewrite'           => false,
+			'capabilities'      => bbp_get_forum_caps(),
+			'capability_type'   => array( 'forum', 'forums' ),
+			'supports'          => array( 'editor', 'title' ),
+			'can_export'        => true
+		);
+
+		register_post_type( 'bbp_canned_reply', $args );
+
+	}
+
 
 	/**
 	 * Load the plugin's CSS files
