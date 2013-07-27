@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
-	$('.bbp-toggle-replies').on('click.bbp_canned_replies_toggle', function(e) {
+	var toggle = $('.bbp-toggle-replies');
+	toggle.on('click.bbp_canned_replies_toggle', function(e) {
 		e.preventDefault();
-		$('.bbp-toggle-replies').toggle();
+		toggle.toggle();
 		$('.bbp-canned-replies-list').slideToggle();
 	});
 	$('.bbp-canned-reply-insert').on('click.bpp_canned_reply_insert', function(e) {
