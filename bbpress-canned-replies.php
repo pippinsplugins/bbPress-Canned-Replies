@@ -119,6 +119,14 @@ class BBP_Canned_Replies {
 	    wp_enqueue_script( 'bbp_canned_replies_script', plugin_dir_url( __FILE__ ) . 'js/canned-replies.js', filemtime( $script_path ) );
 	}
 
+
+	/**
+	 * Front end output
+	 *
+	 * @since 1.0
+	 *
+	 * @return void
+	 */
 	public function reply_form() {
 		echo '<div class="bbp-canned-replies-wrapper">';
 
