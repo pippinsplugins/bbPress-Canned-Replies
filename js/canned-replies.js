@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 		toggle.toggle();
 		$('.bbp-canned-replies-list').slideToggle();
 	});
-	$('.bbp-canned-reply-insert').on('click.bpp_canned_reply_insert', function(e) {
+	$('.bbp-canned-reply-insert').on('click', function(e) {
 		e.preventDefault();
 		var reply_id = $(this).data('id'),
 			content  = $('#bbp-canned-reply-' + reply_id ).html();
