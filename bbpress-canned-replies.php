@@ -5,7 +5,7 @@
  * Plugin URI: http://pippinsplugins.com/bbpress-canned-replies
  * Author: Pippin Williamson
  * Author URI: http://pippinsplugins.com
- * Version: 0.1
+ * Version: 1.0
  */
 
 // Exit if accessed directly
