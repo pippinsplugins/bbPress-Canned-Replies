@@ -20,7 +20,7 @@ Create the pre-defined replies from this new menu. When responding to a forum to
 
 To insert a canned reply, click on the "Canned Replies" link then click "Insert" on the reply you wish to use.
 
-If you have suggestions or bugfixes for the plugin, please report them on [Github](https://github.com/pippinsplugins/bPress-Canned-Replies).
+If you have suggestions or bugfixes for the plugin, please report them on [Github](https://github.com/pippinsplugins/bbPress-Canned-Replies).
 
 **Languages**
 
