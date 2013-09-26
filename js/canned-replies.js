@@ -8,8 +8,9 @@ jQuery(document).ready(function($) {
 	$('.bbp-canned-reply-insert').on('click', function(e) {
 		e.preventDefault();
 		var reply_id = $(this).data('id'),
-			content  = $('#bbp-canned-reply-' + reply_id ).html();
+			content  = $('#bbp-canned-reply-' + reply_id ).html(),
+			reply_box = $('#bbp_reply_content');
 
-		$('#bbp_reply_content').html( content );
+		$(reply_box).val($(reply_box).val() + "\n" + content);
 	});
 });
