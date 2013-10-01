@@ -11,6 +11,8 @@ jQuery(document).ready(function($) {
 			content  = $('#bbp-canned-reply-' + reply_id ).html(),
 			reply_box = $('#bbp_reply_content');
 
-		$(reply_box).val($(reply_box).val() + "\n" + content);
+		var new_val = reply_box.val() == '' ?  content : reply_box.val() + "\n" + content;
+
+		$(reply_box).val( new_val );
 	});
 });
