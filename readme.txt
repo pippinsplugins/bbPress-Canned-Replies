@@ -6,7 +6,7 @@ Donate link: http://pippinsplugins.com/support-the-site
 Tags: bbPress, canned replies, replies, canned responses, Forums, mordauk, Pippin Williamson, pippinsplugins
 Requires at least: 3.2
 Tested up to: 3.6
-Stable Tag: 1.0
+Stable Tag: 1.0.1
 
 Allows you to create and quickly insert pre-defined responses in bbPress forum topics.
 
@@ -43,6 +43,10 @@ Would you like to help translate the plugin into more languages? [Contact Pippin
 2. Canned Replies front end
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Fixed a bug that prevented canned replies from being inserted if the reply box had previously-entered content
 
 = 1.0 =
 
