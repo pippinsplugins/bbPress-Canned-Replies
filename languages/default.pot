@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bbpress-canned-replies\n"
+"POT-Creation-Date: 2013-11-28 14:22-0500\n"
+"PO-Revision-Date: 2013-11-28 14:39-0500\n"
+"Last-Translator: Matthieu Durocher <matthieu.durocher@radio-canada.ca>\n"
+"Language-Team: Matthieu Durocher <matthieu.durocher@gmail.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;__ngettext:1,2;__ngettext_noop:1,2;_c;_e;_ex:1,2c;"
+"_n:1,2;_n_noop:1,2;_nc:1,2,4c;_nx:1,2,4c;_nx_noop:1,2,4c;_x:1,2c;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../bbpress-canned-replies.php:64
+msgctxt "post type general name"
+msgid "Canned Replies"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:65
+msgctxt "post type singular name"
+msgid "Canned Reply"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:66
+msgid "Add New"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:67
+msgid "Add New Canned Reply"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:68
+msgid "Edit Canned Reply"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:69
+msgid "New Canned Reply"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:70 ../bbpress-canned-replies.php:76
+#: ../bbpress-canned-replies.php:137
+msgid "Canned Replies"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:71
+msgid "View Canned Reply"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:72
+msgid "Search Canned Replies"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:73
+msgid "No Canned Replies found"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:74
+msgid "No Canned Replies found in Trash"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:138
+msgid "Hide Canned Replies"
+msgstr ""
+
+#: ../bbpress-canned-replies.php:144
+msgid "Insert"
+msgstr ""
