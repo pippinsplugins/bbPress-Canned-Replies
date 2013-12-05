@@ -27,6 +27,7 @@ If you have suggestions or bugfixes for the plugin, please report them on [Githu
 Canned Replies for bbPress as been translated into the following languages:
 
 1. English
+2. French
 
 Would you like to help translate the plugin into more languages? [Contact Pippin](http://pippinsplugins.com/contact).
 
