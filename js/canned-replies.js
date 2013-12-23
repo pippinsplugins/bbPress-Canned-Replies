@@ -12,7 +12,9 @@ jQuery(document).ready(function($) {
 			reply_box = $('#bbp_reply_content');
 
 		var new_val = reply_box.val() == '' ?  content : reply_box.val() + "\n" + content;
-
 		$(reply_box).val( new_val );
+		
+		// Support the "bbPress Enable TinyMCE Visual Tab" plugin from Jared Atchison
+		$('#bbp_reply_content_ifr').contents().find('body.bbp_reply_content').html( content );
 	});
 });
