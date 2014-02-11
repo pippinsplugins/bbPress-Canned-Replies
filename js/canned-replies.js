@@ -16,5 +16,7 @@ jQuery(document).ready(function($) {
 		
 		// Support the "bbPress Enable TinyMCE Visual Tab" plugin from Jared Atchison
 		$('#bbp_reply_content_ifr').contents().find('body.bbp_reply_content').html( content );
+		$('.bbp-canned-replies-list').slideToggle();
+		toggle.toggle();
 	});
 });
