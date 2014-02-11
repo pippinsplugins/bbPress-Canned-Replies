@@ -5,8 +5,8 @@ Contributors: mordauk
 Donate link: http://pippinsplugins.com/support-the-site
 Tags: bbPress, canned replies, replies, canned responses, Forums, mordauk, Pippin Williamson, pippinsplugins
 Requires at least: 3.2
-Tested up to: 3.6
-Stable Tag: 1.0.3
+Tested up to: 3.9
+Stable Tag: 1.0.4
 
 Allows you to create and quickly insert pre-defined responses in bbPress forum topics.
 
@@ -44,6 +44,10 @@ Would you like to help translate the plugin into more languages? [Contact Pippin
 2. Canned Replies front end
 
 == Changelog ==
+
+= 1.0.4 =
+
+* New: automatically close the canned replies list when a reply is inserted, thanks @cklosowski
 
 = 1.0.3 =
 
