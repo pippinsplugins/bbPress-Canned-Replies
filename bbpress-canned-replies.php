@@ -97,9 +97,9 @@ class BBP_Canned_Replies {
 	}
 
 	/**
-	 * Register the post type
+	 * Register the category taxonomy
 	 *
-	 * @since 1.0
+	 * @since 1.1
 	 *
 	 * @return void
 	 */
@@ -175,21 +175,70 @@ class BBP_Canned_Replies {
 			return;
 
 		echo '<div class="bbp-canned-replies-wrapper">';
-			if( $this->have_canned_replies() ) {
+
+			if( $this->has_categories() ) {
+
 				echo '<a href="#" class="bbp-toggle-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
 				echo '<a href="#" class="bbp-toggle-replies" style="display:none">' . __( 'Hide Canned Replies', 'bbp-canned-replies' ) . '</a>';
 				echo '<ul class="bbp-canned-replies-list">';
-					foreach( $this->have_canned_replies() as $reply ) {
-						echo '<li class="bpp-canned-reply">';
-							echo get_the_title( $reply->ID );
-							echo '<span class="bbp-caned-reply-sep">&nbsp;&ndash;&nbsp;</span>';
-							echo '<a href="#" class="bbp-canned-reply-insert" data-id="' . esc_attr( $reply->ID ) . '">' . __( 'Insert', 'bbp-canned-replies' ) . '</a>';
-							echo '<div class="bbp-canned-reply-content" id="bbp-canned-reply-' . $reply->ID . '" style="display:none;">' . get_post_field( 'post_content', $reply->ID ) . '</div>';
+
+				foreach( $this->has_categories() as $category ) {
+					
+					if( $this->have_canned_replies( $category->term_id ) ) {
+					
+						echo '<li class="bbp-canned-reply-category">';
+
+							echo '<strong>' . $category->name . '</strong>';
+
+							echo '<ul>';
+								foreach( $this->have_canned_replies( $category->term_id ) as $reply ) {
+									echo '<li class="bpp-canned-reply">';
+										echo get_the_title( $reply->ID );
+										echo '<span class="bbp-caned-reply-sep">&nbsp;&ndash;&nbsp;</span>';
+										echo '<a href="#" class="bbp-canned-reply-insert" data-id="' . esc_attr( $reply->ID ) . '">' . __( 'Insert', 'bbp-canned-replies' ) . '</a>';
+										echo '<div class="bbp-canned-reply-content" id="bbp-canned-reply-' . $reply->ID . '" style="display:none;">' . get_post_field( 'post_content', $reply->ID ) . '</div>';
+									echo '</li>';
+								}
+							echo '</ul>';
+
 						echo '</li>';
+
 					}
+
+				}
+
 				echo '</ul>';
+
+			} else {
+
+				if( $this->have_canned_replies() ) {
+					echo '<a href="#" class="bbp-toggle-replies">' . __( 'Canned Replies', 'bbp-canned-replies' ) . '</a>';
+					echo '<a href="#" class="bbp-toggle-replies" style="display:none">' . __( 'Hide Canned Replies', 'bbp-canned-replies' ) . '</a>';
+					echo '<ul class="bbp-canned-replies-list">';
+						foreach( $this->have_canned_replies() as $reply ) {
+							echo '<li class="bpp-canned-reply">';
+								echo get_the_title( $reply->ID );
+								echo '<span class="bbp-caned-reply-sep">&nbsp;&ndash;&nbsp;</span>';
+								echo '<a href="#" class="bbp-canned-reply-insert" data-id="' . esc_attr( $reply->ID ) . '">' . __( 'Insert', 'bbp-canned-replies' ) . '</a>';
+								echo '<div class="bbp-canned-reply-content" id="bbp-canned-reply-' . $reply->ID . '" style="display:none;">' . get_post_field( 'post_content', $reply->ID ) . '</div>';
+							echo '</li>';
+						}
+					echo '</ul>';
+				}
+
 			}
 		echo '</div>';
+	}
+
+	/**
+	 * Get canned reply categories
+	 *
+	 * @since 1.1
+	 *
+	 * @return array
+	 */
+	private function has_categories() {
+		return get_terms( 'bbp_canned_reply_category' );
 	}
 
 
@@ -197,15 +246,25 @@ class BBP_Canned_Replies {
 	 * Get canned replies
 	 *
 	 * @since 1.0
-	 *
-	 * @return void
+	 * @param $category INT The category ID to get canned replies for
+	 * @return array
 	 */
-	private function have_canned_replies() {
+	private function have_canned_replies( $category = 0 ) {
 		$args = apply_filters( 'bbp_canned_replies_query_args', array(
 			'post_type'   => 'bbp_canned_reply',
 			'nopaging'    => true,
 			'post_status' => 'publish'
 		) );
+
+		if( ! empty( $category ) ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'bbp_canned_reply_category',
+					'field'    => 'term_id',
+					'terms'    => $category
+				)
+			);
+		}
 
 		return get_posts( $args );
 	}
