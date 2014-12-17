@@ -5,7 +5,7 @@ Contributors: mordauk
 Donate link: http://pippinsplugins.com/support-the-site
 Tags: bbPress, canned replies, replies, canned responses, Forums, mordauk, Pippin Williamson, pippinsplugins
 Requires at least: 3.2
-Tested up to: 3.9
+Tested up to: 4.1
 Stable Tag: 1.1
 
 Allows you to create and quickly insert pre-defined responses in bbPress forum topics.
